@@ -8,14 +8,29 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type='text/babel'>
         const root = document.getElementById("root");
-        
-        function Title() {
-            return (
-                <h3 id="title" onMouseEnter={()=>console.log('mouse enter')}>
-                 Hello i'm title
-               </h3>
-            )
+        let counter = 0;
+
+        function countUp() {
+            counter = counter  + 1;
+            render();
         }
+        function render(){
+            ReactDOM.render(<Container/>, root);
+        }
+        const Container = () => (
+            <div>
+                <h3>Total click: {counter}</h3>
+                <button onClick = {countUp} >Click me</button>    
+            </div>
+        )
+        render();
+        // function Title() {
+        //     return (
+        //         <h3 id="title" onMouseEnter={()=>console.log('mouse enter')}>
+        //          Hello i'm title
+        //        </h3>
+        //     )
+        // }
         // const Title = () => (
         //     <h3 id="title" onMouseEnter={()=>console.log('mouse enter')}>
         //     Hello i'm title
@@ -29,14 +44,14 @@
         //     "Hello i'm a span"
         // );
         
-        const Button = ()=>( <button style={{
-            backgroundColor: 'tomato',
-        }}
-            onClick={()=> console.log('im clicked')}
-        >
-            Click me
-        </button>
-        );
+        // const Button = ()=>( <button style={{
+        //     backgroundColor: 'tomato',
+        // }}
+        //     onClick={()=> console.log('im clicked')}
+        // >
+        //     Click me
+        // </button>
+        // );
         // const btn = React.createElement(
         //     "button", 
         //     {
@@ -46,11 +61,10 @@
         // );
 
         
-        const Container = (
-            <div>
-                <Title/> <Button/>     
-            </div>
-        );
-        ReactDOM.render(container, root);
+        // const Container = (
+        //     <div>
+        //         <Title/> <Button/>     
+        //     </div>
+        // );
     </script>
 </html>
