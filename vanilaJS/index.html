@@ -9,15 +9,17 @@
     <script type='text/babel'>
         const root = document.getElementById("root");
         function App() {
-            const [food, modifier] = React.useState(0);
-            console.log(data);
+            const [counter, setCounter] = React.useState(0);
+            const onClick = () => {
+                setCounter(counter + 1)
+            }
             return (
                 <div>
                     <h3>Total click: {counter}</h3>
-                    <button onClick = {countUp} >Click me</button>    
+                    <button onClick={onClick}>Click me</button>
                 </div>
             )
         }
-        ReactDom.render(<App />, root);
+        ReactDOM.render(<App />, root);
     </script>
 </html>
